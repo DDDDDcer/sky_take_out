@@ -66,7 +66,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
-
+    /**
+     * 保存员工信息
+     *
+     * @param employeeDTO
+     * @return
+     */
     public void save(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         //属性拷贝BeanUtils.copyProperties(source, target)
@@ -75,10 +80,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setStatus(StatusConstant.ENABLE);
         //设置密码为123456
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setCreateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
+        //employee.setCreateUser(BaseContext.getCurrentId());
+        //employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.insert(employee);
     }
 
@@ -100,7 +105,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 启用或禁用员工账号
-     *
      * @param status
      * @param id
      */
@@ -128,12 +132,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+    /**
+     * 修改员工信息
+     *
+     * @param employeeDTO
+     */
     @Override
     public void edit(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setUpdateTime(LocalDateTime.now());
+        //employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
 }
