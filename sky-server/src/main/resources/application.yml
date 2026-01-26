@@ -28,12 +28,13 @@ logging:
         mapper: debug
         service: info
         controller: info
-
 sky:
+  alioss:
+    access-key-secret: ${ALIOSS_ACCESS_KEY_SECRET}
+    access-key-id: ${ALIOSS_ACCESS_KEY_ID}
+    bucket-name: ${ALIOSS_BUCKET_NAME}
+    endpoint: ${ALIOSS_ENDPOINT}
   jwt:
-    # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: Uestc
-    # 设置jwt过期时间
-    admin-ttl: 7200000
-    # 设置前端传递过来的令牌名称
-    admin-token-name: token
+    admin-secret-key: ${sky.jwt.admin-secret-key}
+    admin-ttl: ${sky.jwt.admin-ttl}
+    admin-token-name: ${sky.jwt.admin-token-name}
