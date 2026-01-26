@@ -28,13 +28,14 @@ logging:
         mapper: debug
         service: info
         controller: info
+
 sky:
   alioss:
-    access-key-secret: ${ALIOSS_ACCESS_KEY_SECRET}
-    access-key-id: ${ALIOSS_ACCESS_KEY_ID}
-    bucket-name: ${ALIOSS_BUCKET_NAME}
-    endpoint: ${ALIOSS_ENDPOINT}
+    access-key-secret: #{sky.alioss.access-key-secret}
+    access-key-id: #{sky.alioss.access-key-id}
+    bucket-name: #{sky.alioss.bucket-name}
+    endpoint: #{sky.alioss.endpoint}
   jwt:
-    admin-secret-key: ${sky.jwt.admin-secret-key}
-    admin-ttl: ${sky.jwt.admin-ttl}
-    admin-token-name: ${sky.jwt.admin-token-name}
+    admin-secret-key: #{sky.jwt.admin-secret-key}
+    admin-ttl: #{sky.jwt.admin-ttl}
+    admin-token-name: #{sky.jwt.admin-token-name}
